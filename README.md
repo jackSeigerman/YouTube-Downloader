@@ -1,6 +1,5 @@
 # YouTube-Downloader
 a program to download MP4 and MP3 files from YouTube
-<<<<<<< HEAD
 ## Getting Started
 go to this site: [ffmpeg download](https://ffmpeg.org/download.html) and download ffmpeg. Then open the terminal and type the following:
 ```
