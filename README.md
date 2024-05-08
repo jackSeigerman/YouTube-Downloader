@@ -12,3 +12,7 @@ pip install PyQt5 yt-dlp pydub requests
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
+
+## Special Thanks
+
+special thanks to  [novasars](https://github.com/novasars) for helping test
