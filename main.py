@@ -7,6 +7,8 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLi
 from PyQt5.QtCore import pyqtSlot, Qt
 from PyQt5.QtGui import QPixmap, QIcon
 from yt_dlp import YoutubeDL
+from pydub import AudioSegment
+import tempfile
 
 # Global variable to hold the selected download directory
 download_directory = ""
@@ -30,29 +32,38 @@ def download_video():
 @pyqtSlot()
 def download_mp3():
     url = url_input.text()
-    output_path = f"{download_directory}/%(title)s.%(ext)s"
+
+    # Define ydl options for metadata extraction
     ydl_opts = {
         'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-        'outtmpl': output_path,
-        'progress_hooks': [hook],
         'noplaylist': True
     }
-    with YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
 
+    # Temporary directory for downloading
+    with tempfile.TemporaryDirectory() as temp_dir:
+        # Using yt-dlp to extract information
+        with YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=False)  # download=False to not download just extract info
+            video_title = info_dict.get('title', 'Downloaded Audio')
+            safe_title = ''.join([c for c in video_title if c.isalnum() or c in (' ', '-', '_')]).rstrip()
+            audio_file_path = os.path.join(temp_dir, safe_title + ydl.prepare_filename(info_dict).split('.')[-1])
 
-def setup_ffmpeg_path():
-    if getattr(sys, 'frozen', False):
-        base_path = sys._MEIPASS
-    else:
-        base_path = os.path.dirname(__file__)
-    ffmpeg_path = os.path.join(base_path, 'ffmpeg')
-    os.environ['PATH'] += os.pathsep + ffmpeg_path
+        # Redefine ydl_opts to download the file
+        ydl_opts.update({
+            'outtmpl': audio_file_path
+        })
+
+        # Download the audio file using updated ydl options
+        with YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+
+        # Convert to MP3 using pydub
+        try:
+            audio = AudioSegment.from_file(audio_file_path)
+            mp3_file_path = os.path.join(download_directory, safe_title + '.mp3')
+            audio.export(mp3_file_path, format="mp3", bitrate="192k")
+        except Exception as e:
+            error_label.setText(f"Failed to convert audio: {str(e)}")
 
 
 def load_last_directory():
