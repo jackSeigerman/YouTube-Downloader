@@ -1,5 +1,6 @@
 # YouTube-Downloader
 a program to download MP4 and MP3 files from YouTube
+<<<<<<< HEAD
 ## Getting Started
 go to this site: [ffmpeg download](https://ffmpeg.org/download.html) and download ffmpeg. Then open the terminal and type the following:
 ```
@@ -16,3 +17,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) f
 ## Special Thanks
 
 special thanks to  [novasars](https://github.com/novasars) for helping test
+=======
+>>>>>>> parent of 64e1392 (Merge branch 'main' of https://github.com/jackSeigerman/YouTube-Downloader)

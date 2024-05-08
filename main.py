@@ -11,21 +11,21 @@ from yt_dlp import YoutubeDL
 # Global variable to hold the selected download directory
 download_directory = ""
 
+
 @pyqtSlot()
 def download_video():
     url = url_input.text()
     output_path = f"{download_directory}/%(title)s.%(ext)s"
-
     ydl_opts = {
         'format': 'bestvideo[ext=mp4][vcodec=h264]+bestaudio[ext=m4a]/best[ext=mp4][vcodec=h264]/best',
         'merge_output_format': 'mp4',
         'outtmpl': output_path,
-        'progress_hooks': [hook],  # Add progress hook
+        'progress_hooks': [hook],
         'noplaylist': True
     }
-
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
+
 
 @pyqtSlot()
 def download_mp3():
@@ -44,6 +44,15 @@ def download_mp3():
     }
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
+
+
+def setup_ffmpeg_path():
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.dirname(__file__)
+    ffmpeg_path = os.path.join(base_path, 'ffmpeg')
+    os.environ['PATH'] += os.pathsep + ffmpeg_path
 
 
 def load_last_directory():
@@ -154,15 +163,13 @@ directory_button = QPushButton('Select Download Directory')
 directory_button.clicked.connect(select_directory)
 main_layout.addWidget(directory_button)
 
-
-directory_label = QLabel("No directory selected")
-main_layout.addWidget(directory_label)
-
 open_location_button = QPushButton('Open File Location')
 open_location_button.clicked.connect(open_file_location)
 open_location_button.hide()  # Initially hide the button
 main_layout.addWidget(open_location_button)
 
+directory_label = QLabel("No directory selected")
+main_layout.addWidget(directory_label)
 
 progress_bar = QProgressBar()
 progress_bar.setAlignment(Qt.AlignCenter)
