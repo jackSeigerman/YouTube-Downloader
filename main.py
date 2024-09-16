@@ -2,8 +2,8 @@ import sys
 import os
 import requests
 import subprocess
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLineEdit, QPushButton, QFileDialog, \
-    QLabel, QProgressBar, QGroupBox, QFrame
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLineEdit, QPushButton, QFileDialog, \
+    QLabel, QProgressBar, QGroupBox
 from PyQt5.QtCore import pyqtSlot, Qt
 from PyQt5.QtGui import QPixmap, QIcon
 from yt_dlp import YoutubeDL
@@ -12,24 +12,45 @@ from yt_dlp import YoutubeDL
 download_directory = ""
 
 
+def setup_ffmpeg_path():
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.dirname(__file__)
+    ffmpeg_path = os.path.join(base_path, 'ffmpeg')
+    os.environ['PATH'] += os.pathsep + ffmpeg_path
+
 @pyqtSlot()
 def download_video():
     url = url_input.text()
+    if not url or not download_directory:
+        error_label.setText("Please provide a valid URL and select a download directory.")
+        return
+
     output_path = f"{download_directory}/%(title)s.%(ext)s"
     ydl_opts = {
-        'format': 'bestvideo[ext=mp4][vcodec=h264]+bestaudio[ext=m4a]/best[ext=mp4][vcodec=h264]/best',
+        'format': 'bestvideo[height>=1080]+bestaudio/best[ext=mp4]/best',
         'merge_output_format': 'mp4',
         'outtmpl': output_path,
         'progress_hooks': [hook],
         'noplaylist': True
     }
-    with YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
+
+    try:
+        with YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+    except Exception as e:
+        error_label.setText(f"An error occurred: {e}")
+        progress_bar.setValue(0)
 
 
 @pyqtSlot()
 def download_mp3():
     url = url_input.text()
+    if not url or not download_directory:
+        error_label.setText("Please provide a valid URL and select a download directory.")
+        return
+
     output_path = f"{download_directory}/%(title)s.%(ext)s"
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -42,17 +63,13 @@ def download_mp3():
         'progress_hooks': [hook],
         'noplaylist': True
     }
-    with YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
 
-
-def setup_ffmpeg_path():
-    if getattr(sys, 'frozen', False):
-        base_path = sys._MEIPASS
-    else:
-        base_path = os.path.dirname(__file__)
-    ffmpeg_path = os.path.join(base_path, 'ffmpeg')
-    os.environ['PATH'] += os.pathsep + ffmpeg_path
+    try:
+        with YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+    except Exception as e:
+        error_label.setText(f"An error occurred: {e}")
+        progress_bar.setValue(0)
 
 
 def load_last_directory():
@@ -140,7 +157,7 @@ def fetch_video_info():
 
 app = QApplication(sys.argv)
 window = QWidget()
-window.setWindowTitle('Youtube Downloader')
+window.setWindowTitle('YouTube Downloader')
 window.setWindowIcon(QIcon('icon.ico'))
 window.resize(500, 400)
 
@@ -199,5 +216,7 @@ window.show()
 download_directory = load_last_directory()
 if download_directory:
     directory_label.setText(f"Download to: {download_directory}")
+
+setup_ffmpeg_path()
 
 sys.exit(app.exec_())

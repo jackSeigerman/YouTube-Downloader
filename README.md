@@ -6,8 +6,6 @@ go to this site: [ffmpeg download](https://ffmpeg.org/download.html) and downloa
 pip install PyQt5 yt-dlp
 ```
 then you can open the executable and insert a link from youtube, put in your directory of choice and click MP3 for audio and MP4 for video
-for more instructions on how to get ffmpeg go to: 
-[ffmpeg instructions](https://www.editframe.com/guides/how-to-install-and-start-using-ffmpeg-in-under-10-minutes)
 ##  Documentation
 * [yt-dlp](https://github.com/yt-dlp/yt-dlp) - yt-dlp github page
 
