@@ -20,7 +20,7 @@ A program to download videos from YouTube as an Mp4 or Mp3. You can change the d
 ### Directory saving
 This Youtube Downloader saves your download directory prefrence through sessions, so you dont have to remeber to set the directory you want to download to each time you open the downloader.
 
-![Canvas](assets/Resize.gif)
+![Canvas](assets/YoutubeDownloaderDirectory.gif)
 
 ### Easy to use Download and directory interface
 Find a hilarious or interesting photo? Why not download it? With our custom directory GUI finding the right place to save your image just got a lot easier.
