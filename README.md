@@ -23,12 +23,12 @@ This Youtube Downloader saves your download directory prefrence through sessions
 ![Canvas](assets/YoutubeDownloaderDirectory.gif)
 
 ### Compatibilty with Premiere pro and Davinci Resolve
-sampletext
+Many downloaders have issues with the codec used in refrence to Adobe Premiere pro and Davinci Resolve. This downloader downloads videos as Mp4's in a codec that both Premiere and Davinci Resolve supports.
 
 ![Canvas](assets/Downloading.gif)
 
 ### Mp4 and Mp3 Downloadabilty
-sampletext
+Download any video on Youtube as either a video or just an audio. Both are the highest quality available for the video in question with no compromises. 
 
 ![Canvas](assets/Gallery.gif)
 
