@@ -5,9 +5,9 @@
 ![GitHub Release](https://img.shields.io/github/v/release/jackSeigerman/Youtube-Downloader)
 
 
-A program to fetch random images from imgur. This occurs one at a time upon hitting a button. You can also download the image, or go back and view some previous images fetched.
+A program to download videos from YouTube as an Mp4 or Mp3. You can change the directory that the video or audio downloads to. 
 
-![Canvas](assets/RandomImgur.gif)
+![Canvas](assets/YoutubeDownloader.gif)
 
 ## Table of contents
 - [Features](#features)
