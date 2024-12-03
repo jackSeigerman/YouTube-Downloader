@@ -17,8 +17,8 @@ A program to download videos from YouTube as an Mp4 or Mp3. You can change the d
 
 ## Features
 
-### Dynamic frame and Image resizing
-Want an image larger? No problem. Want to make the application smaller? No problem. Scale the application and image with ease.
+### Directory saving
+This Youtube Downloader saves your download directory prefrence through sessions, so you dont have to remeber to set the directory you want to download to each time you open the downloader.
 
 ![Canvas](assets/Resize.gif)
 
