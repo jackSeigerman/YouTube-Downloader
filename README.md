@@ -60,11 +60,9 @@ sampletext
 
 3. On the right side of the page there is a "[Releases](https://github.com/jackSeigerman/YouTube-Downloader/releases)" tab, click it and then click "[MacOS release](https://github.com/jackSeigerman/YouTube-Downloader/releases/tag/v1.0.1)" *(or just click the MacOs release button)*
 
-6. Download the jar file and the yt-dlp file at the bottom of the square. They should be called "Youtube Downloader.jar" and "yt-dlp" 
+6. Download the jar file and the yt-dlp file at the bottom of the square. They should be called "Youtube Downloader Mac.jar" and "yt-dlp" 
 
 7. Once downloaded, place both the jar and yt-dlp file into a folder somewhere on your computer, the location does not matter as long as you can recall where you placed it, you can also name this folder whatever you want
-
-8. please note that sometimes on MacOS there are permissions issues especially in some of the newer MacOS versions. There are some settings you can change to fix this im sure, but im still trying to figure it out :(
 
 
 ---
