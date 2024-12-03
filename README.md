@@ -13,14 +13,12 @@ A program to download videos from YouTube as an Mp4 or Mp3. You can change the d
 - [Features](#features)
 - [Installation](#installation)
 - [User Guide](#user-guide)
-- [Disclaimer](#disclaimer)
 - [License](#license)
-- [Credits](#credits)
 
 ## Features
 
-### Dynamic frame and Image resizing
-Want an image larger? No problem. Want to make the application smaller? No problem. Scale the application and image with ease.
+### Directory saving
+This Youtube Downloader saves your download directory prefrence through sessions, so you dont have to remeber to set the directory you want to download to each time you open the downloader.
 
 ![Canvas](assets/Resize.gif)
 
@@ -51,7 +49,6 @@ you can then download the Exe or Jar depending on your operating system.
 >Likewise, you can download the entire repository and run the Exe or Jar from the build folder
 
 
-
 ## User Guide
 
 Click **Generate Image** to start the process
@@ -66,10 +63,5 @@ Click **Gallery** to view the previous nine images
 
 ![Canvas](assets/Gallery.JPG)
 
-## Disclaimer
-Unfortunately the internet is the internet, so upon retrieving an image from Imgur, there is no telling what you will get. Please see the [Imgur terms of service](https://imgur.com/tos) for more information. We did not create, place, or change the chances of generating any particular image or type of image.
-
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
-## Credits
-Created by [Jack Seigerman](https://github.com/jackSeigerman), [Aryeh Bloom](https://github.com/aryeh-bloom), and [Michael Boyer](https://github.com/Michael-Boyer)
