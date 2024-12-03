@@ -48,7 +48,7 @@ sampletext
 
 4. Download the two exe files at the bottom of the square. They should be called "Youtube Downloader.exe" and "yt-dlp.exe" 
 
-5. Once downloaded, place both exe files into a folder somewhere on your computer, the location does not matter as long as you can recall where you placed it
+5. Once downloaded, place both exe files into a folder somewhere on your computer, the location does not matter as long as you can recall where you placed it, you can also name this folder whatever you want
 
 ---
 
@@ -62,7 +62,7 @@ sampletext
 
 6. Download the jar file and the yt-dlp file at the bottom of the square. They should be called "Youtube Downloader.jar" and "yt-dlp" 
 
-7. Once downloaded, place both the jar and yt-dlp file into a folder somewhere on your computer, the location does not matter as long as you can recall where you placed it
+7. Once downloaded, place both the jar and yt-dlp file into a folder somewhere on your computer, the location does not matter as long as you can recall where you placed it, you can also name this folder whatever you want
 
 8. please note that sometimes on MacOS there are permissions issues especially in some of the newer MacOS versions. There are some settings you can change to fix this im sure, but im still trying to figure it out :(
 
@@ -79,7 +79,7 @@ sampletext
 
 6. Download the jar file and the yt-dlp file at the bottom of the square. They should be called "Youtube Downloader.jar" and "yt-dlp" 
 
-7. Once downloaded, place both the jar and yt-dlp file into a directory somewhere on your computer, the location does not matter as long as you can recall where you placed it
+7. Once downloaded, place both the jar and yt-dlp file into a directory somewhere on your computer, the location does not matter as long as you can recall where you placed it, you can also name this directory whatever you want
 
 ---
 
