@@ -50,6 +50,8 @@ Download any video on Youtube as either a video or just an audio. Both are the h
 
 5. Once downloaded, place both exe files into a folder somewhere on your computer, the location does not matter as long as you can recall where you placed it, you can also name this folder whatever you want
 
+6. Important note: Sometimes on windows, FFmpeg doesnt act right. You may need to [follow this quick guide](https://phoenixnap.com/kb/ffmpeg-windows) to have it function properly. 
+
 ---
 
 ### *MacOS*
